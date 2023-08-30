@@ -1,7 +1,12 @@
 body {
+  display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
 }
+
 .side-nav {
   background-color: #363636;
   width: 230px;
@@ -57,7 +62,6 @@ body {
   text-align: left;
   color: #fffaf2;
   text-transform: uppercase;
-  /* padding: 4px 0; */
   text-decoration: none;
 }
 
@@ -69,4 +73,22 @@ body {
 
 #menu-social i {
   color: #fffaf2;
+}
+
+#main-container {
+  border: 2px solid red;
+  margin-left: 255px;
+  max-width: 1440px;
+  width: 100vw;
+  height: 2000px;
+  text-align: center;
+}
+
+footer {
+  border: 2px solid red;
+  max-width: 1440px;
+  margin-left: 255px;
+  width: 100vw;
+
+  text-align: center;
 }
