@@ -1,6 +1,4 @@
 body {
-  display: flex;
-  flex-wrap: wrap;
   padding: 0;
   margin: 0;
   width: 100vw;
@@ -24,9 +22,18 @@ body {
   border: 5px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(193deg, #ff8e73 0%, #b488ea 100%);
+}
+
+.right-border {
   border-left: 0;
   border-top: 0;
   border-bottom: 0;
+}
+
+.bottom-border {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
 }
 
 .side-nav img {
@@ -73,9 +80,94 @@ body {
   padding: 20px 30px;
 }
 
-#menu-social i {
+.fa-brands,
+.fa-solid {
   color: #fffaf2;
 }
+
+/* +++++ MOBILE Nav+++++++ */
+
+.mobile-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #454545;
+  min-height: 70px;
+  position: fixed;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+#jm-nav-img {
+  height: 62px;
+  width: auto;
+  align-self: flex-end;
+}
+
+#mobile-nav-logo {
+  height: 42px;
+  width: auto;
+  padding-right: 6vw;
+}
+
+#mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw; /* Change 0 - 100vw to hide */
+  height: 100vh;
+  background-color: #363636;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#overlay-top {
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+}
+
+#overlay-top img {
+  height: 40px;
+}
+
+#overlay-nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 30vh; */
+  /* padding: 40px 0 20px; */
+  gap: 15px;
+  align-items: center;
+}
+
+#overlay-nav-links a {
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: left;
+  color: #fffaf2;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#overlay-bottom {
+  padding-bottom: 60px;
+  max-width: 375px;
+  width: 100%;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ######### END NAVIGATION ####*/
 
 #main-container {
   border: 2px dotted red;
@@ -84,6 +176,9 @@ body {
   width: 100vw;
   height: 2000px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 75px;
 }
 
 footer {
