@@ -96,6 +96,7 @@ body {
   position: fixed;
   justify-content: space-between;
   padding-left: 20px;
+  visibility: hidden; /* change for showing */
 }
 
 #jm-nav-img {
@@ -115,9 +116,9 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100vw; /* Change 0 - 100vw to hide */
+  width: 0vw; /* Change 0 - 100vw to hide */
   height: 100vh;
-  background-color: #363636;
+  background-color: rgba(54, 54, 54, 0.99);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -127,7 +128,8 @@ body {
 
 #overlay-top {
   display: flex;
-  width: 90vw;
+  max-width: 834px;
+  width: 90%;
   justify-content: space-between;
   align-items: center;
   padding: 20px 32px;
@@ -188,4 +190,25 @@ footer {
   width: 100vw;
 
   text-align: center;
+}
+
+/* Break Points 
+
+Over 1024 - Side Nav - Main Content Margin Left Adjusted
+Under 1024 - Top Nav - Main Content Left Adjusted
+           - */
+
+@media screen and (max-width: 992px) {
+  .mobile-nav {
+    visibility: visible;
+  }
+
+  .side-nav {
+    visibility: hidden;
+  }
+
+  #main-container,
+  footer {
+    margin-left: 0;
+  }
 }
