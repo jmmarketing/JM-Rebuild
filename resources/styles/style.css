@@ -6,6 +6,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   width: 100vw;
+  background-color: #454545;
 }
 
 h1,
@@ -14,6 +15,7 @@ h3,
 h4 {
   font-family: "Bebas Neue", sans-serif;
   color: #fffaf2;
+  font-weight: 400;
 }
 
 h1 {
@@ -217,13 +219,31 @@ span {
   margin-left: 255px;
   max-width: 1440px;
   width: 100vw;
-  height: 2000px;
+  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding-top: 75px;
 }
 
+#hero {
+  padding-top: 75px;
+  background-color: #454545;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-title {
+  font-size: 7vw; /*VW instead?*/
+  text-transform: uppercase;
+  line-height: 91%;
+  /* Use flex isntead*/
+  text-align: left;
+  padding-left: 100px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+}
 /* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
