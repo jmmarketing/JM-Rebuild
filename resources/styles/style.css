@@ -83,6 +83,7 @@ body {
 .fa-brands,
 .fa-solid {
   color: #fffaf2;
+  cursor: pointer;
 }
 
 /* +++++ MOBILE Nav+++++++ */
@@ -111,7 +112,7 @@ body {
   padding-right: 6vw;
 }
 
-#mobile-menu-overlay {
+.mobile-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -124,6 +125,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.open {
+  width: 100vw;
 }
 
 #overlay-top {
