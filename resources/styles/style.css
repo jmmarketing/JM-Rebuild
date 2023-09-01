@@ -1,21 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
 body {
-  padding: 0;
   margin: 0;
-  width: 100vw;
   overflow-x: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bebas Neue", sans-serif;
+  color: #fffaf2;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+p,
+a,
+span {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #fffaf2;
 }
 
 /* ###### Navigation ##### */
 .side-nav {
   background-color: #363636;
-  width: 230px;
-  height: 95vh;
+  overflow-x: hidden;
   position: fixed;
+
+  /*--Sizing--*/
+  height: 95vh;
+  width: 230px;
+  padding: 25px 10px;
+
+  /*--Flex--*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-x: hidden;
-  padding: 25px 10px;
 }
 
 .border-gradient {
@@ -65,7 +101,6 @@ body {
 }
 
 #nav-links a {
-  font-family: Poppins, sans-serif;
   font-weight: 400;
   font-size: 18px;
   text-align: left;
@@ -155,7 +190,6 @@ body {
 }
 
 #overlay-nav-links a {
-  font-family: Poppins, sans-serif;
   font-weight: 400;
   font-size: 24px;
   text-align: left;
@@ -176,6 +210,8 @@ body {
 
 /* ######### END NAVIGATION ####*/
 
+/* ######### MAIN CONTENT ##########*/
+
 #main-container {
   border: 2px dotted red;
   margin-left: 255px;
@@ -188,12 +224,12 @@ body {
   padding-top: 75px;
 }
 
+/* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
   max-width: 1440px;
   margin-left: 255px;
   width: 100vw;
-
   text-align: center;
 }
 
