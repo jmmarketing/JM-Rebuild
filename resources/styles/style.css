@@ -7,6 +7,7 @@ body {
   padding: 0;
   width: 100vw;
   background-color: #454545;
+  color: #fffaf2;
 }
 
 h1,
@@ -14,7 +15,6 @@ h2,
 h3,
 h4 {
   font-family: "Bebas Neue", sans-serif;
-  color: #fffaf2;
   font-weight: 400;
 }
 
@@ -31,10 +31,13 @@ h3 {
 h4 {
   font-size: 18px;
 }
-p {
+p,
+a {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
-  color: #fffaf2;
+}
+span {
+  display: inline-block;
 }
 
 /* ###### Navigation ##### */
@@ -223,24 +226,34 @@ p {
   flex-direction: column;
 }
 
+/* +++++ HERO Section ++++++ */
 #hero {
   padding-top: 75px;
   background-color: #454545;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.hero-title {
-  font-size: 7vw; /*VW instead?*/
-  text-transform: uppercase;
-  line-height: 91%;
-  /* Use flex isntead*/
+#hero-content {
   text-align: left;
   padding-left: 100px;
 }
 
+.hero-title {
+  font-size: 6vw; /*VW instead? - Change in MediaQuery*/
+  text-transform: uppercase;
+  line-height: 91%;
+  margin-bottom: 0;
+  /* Use flex isntead*/
+  /* text-align: left;
+  padding-left: 100px; */
+}
+
 .hero-subtitle {
-  font-size: 18px;
+  font-size: 1.3vw;
 }
 
 .hero-title .highlight {
@@ -251,9 +264,70 @@ p {
   box-shadow: inset 0 -0.25em #33a7b2;
 }
 
-span {
-  display: inline-block;
+#hero-scroll {
+  height: 80px;
+  width: 100%;
+  background-color: #8966b5;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  overflow: hidden;
 }
+
+#hero-scroll h2 span {
+  padding: 0 40px;
+}
+
+#hero-scroll h2 {
+  /* position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  text-align: center; */
+  /* Starting position */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  /* Apply animation to this element */
+  -moz-animation: scroll-left 25s linear infinite;
+  -webkit-animation: scroll-left 25s linear infinite;
+  animation: scroll-left 25s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+  0% {
+    -moz-transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+@keyframes scroll-left {
+  0% {
+    -moz-transform: translateX(100%); /* Browser bug fix */
+    -webkit-transform: translateX(100%); /* Browser bug fix */
+    transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%); /* Browser bug fix */
+    -webkit-transform: translateX(-100%); /* Browser bug fix */
+    transform: translateX(-100%);
+  }
+}
+
 /* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
