@@ -240,6 +240,7 @@ span {
 #hero-content {
   text-align: left;
   padding-left: 100px;
+  justify-self: center;
 }
 
 .hero-title {
@@ -263,7 +264,39 @@ span {
 .hero-title .highlight-underline {
   box-shadow: inset 0 -0.25em #33a7b2;
 }
+/* --- Accolades --*/
+#accolades {
+  display: flex;
+  padding-left: 100px;
+  position: absolute;
+  bottom: 80px;
+  column-gap: 40px;
+  flex-wrap: wrap;
+}
 
+.solo-accolade {
+  display: flex;
+  width: 220px;
+  height: 130px;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.solo-accolade h2 {
+  font-size: 76px;
+  /* text-decoration: line-through; */
+}
+
+.solo-accolade p {
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 300;
+  vertical-align: middle;
+  /* text-decoration: line-through; */
+}
+
+/* --- Scroll --*/
 #hero-scroll {
   height: 80px;
   width: 100%;
@@ -284,49 +317,6 @@ span {
 
 #hero-scroll h2 {
   white-space: nowrap;
-  /* position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 50px;
-  text-align: center; */
-  /* Starting position */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  /* Apply animation to this element */
-  -moz-animation: scroll-left 25s linear infinite;
-  -webkit-animation: scroll-left 25s linear infinite;
-  animation: scroll-left 25s linear infinite;
-}
-/* Move it (define the animation) */
-@-moz-keyframes scroll-left {
-  0% {
-    -moz-transform: translateX(100%);
-  }
-  100% {
-    -moz-transform: translateX(-100%);
-  }
-}
-@-webkit-keyframes scroll-left {
-  0% {
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    -webkit-transform: translateX(-100%);
-  }
-}
-@keyframes scroll-left {
-  0% {
-    -moz-transform: translateX(100%); /* Browser bug fix */
-    -webkit-transform: translateX(100%); /* Browser bug fix */
-    transform: translateX(100%);
-  }
-  100% {
-    -moz-transform: translateX(-100%); /* Browser bug fix */
-    -webkit-transform: translateX(-100%); /* Browser bug fix */
-    transform: translateX(-100%);
-  }
 }
 
 /* ######## FOOTER ############ */
