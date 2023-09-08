@@ -294,11 +294,13 @@ span {
   height: 100px;
   align-items: center;
   column-gap: 15px;
+  padding-bottom: 15px;
   /* border: 1px red dotted; */
 }
 
 .solo-accolade h2 {
   font-size: 65px;
+
   /* text-decoration: line-through; */
 }
 
