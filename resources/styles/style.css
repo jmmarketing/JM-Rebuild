@@ -40,6 +40,22 @@ span {
   display: inline-block;
 }
 
+.purple {
+  color: #8966b5;
+}
+
+.peach {
+  color: #ff8e73;
+}
+
+.teal {
+  color: #33a7b2;
+}
+
+.pad-left-8 {
+  padding-left: 8%;
+}
+
 /* ###### Navigation ##### */
 .side-nav {
   background-color: #363636;
@@ -55,6 +71,8 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  /* z-index: 1; */
 }
 
 .border-gradient {
@@ -188,7 +206,7 @@ span {
   justify-content: space-between;
   /* height: 30vh; */
   /* padding: 40px 0 20px; */
-  gap: 15px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -202,7 +220,7 @@ span {
 }
 
 #overlay-bottom {
-  padding-bottom: 60px;
+  padding-bottom: 40px;
   max-width: 375px;
   width: 100%;
   width: 90vw;
@@ -219,7 +237,7 @@ span {
   border: 2px dotted red;
   margin-left: 255px;
   max-width: 1440px;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   text-align: center;
   display: flex;
@@ -228,33 +246,32 @@ span {
 
 /* +++++ HERO Section ++++++ */
 #hero {
-  padding-top: 75px;
+  padding-top: 150px;
   background-color: #454545;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
 #hero-content {
   text-align: left;
-  padding-left: 100px;
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-title {
   font-size: 6vw; /*VW instead? - Change in MediaQuery*/
   text-transform: uppercase;
   line-height: 91%;
-  margin-bottom: 0;
-  /* Use flex isntead*/
-  /* text-align: left;
-  padding-left: 100px; */
+  margin: 0;
 }
 
 .hero-subtitle {
-  font-size: 1.3vw;
+  font-size: 23px;
+  padding-right: 4.5%;
+  width: 65vw;
 }
 
 .hero-title .highlight {
@@ -267,23 +284,24 @@ span {
 /* --- Accolades --*/
 #accolades {
   display: flex;
-  padding-left: 100px;
-  position: absolute;
-  bottom: 80px;
+  /* position: absolute;
+  bottom: 100px; */
   column-gap: 40px;
   flex-wrap: wrap;
+  /* border: 1px red solid; */
 }
 
 .solo-accolade {
   display: flex;
-  width: 220px;
-  height: 130px;
+  width: fit-content;
+  height: 100px;
   align-items: center;
   column-gap: 15px;
+  /* border: 1px red dotted; */
 }
 
 .solo-accolade h2 {
-  font-size: 76px;
+  font-size: 65px;
   /* text-decoration: line-through; */
 }
 
@@ -298,11 +316,12 @@ span {
 
 /* --- Scroll --*/
 #hero-scroll {
-  height: 80px;
+  /* height: 80px; */
   width: 100%;
   background-color: #8966b5;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
+  left: 255px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -316,7 +335,17 @@ span {
 }
 
 #hero-scroll h2 {
+  padding: 20px 0;
   white-space: nowrap;
+}
+
+/* +++++ END HERO Section ++++++ */
+
+/* +++++ SERVICES Section ++++++ */
+#services {
+  width: 100%;
+  height: auto;
+  background-color: red;
 }
 
 /* ######## FOOTER ############ */
@@ -335,6 +364,9 @@ Under 1024 - Top Nav - Main Content Left Adjusted
            - */
 
 @media screen and (max-width: 992px) {
+  .pad-left-8 {
+    padding-left: 20px;
+  }
   .mobile-nav {
     visibility: visible;
   }
@@ -346,5 +378,25 @@ Under 1024 - Top Nav - Main Content Left Adjusted
   #main-container,
   footer {
     margin-left: 0;
+  }
+
+  .hero-title {
+    font-size: 9vw;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    width: 90vw;
+  }
+
+  #hero-scroll {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .solo-accolade {
+    width: 60%;
+    height: 75px;
   }
 }
