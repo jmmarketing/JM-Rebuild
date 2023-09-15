@@ -389,7 +389,7 @@ span {
 
 #skills {
   /* Combine Section CSS into one*/
-  width: calc(90vw - 255px);
+  width: 90vw;
   height: auto;
   text-align: left;
   margin: 100px 0 50px;
@@ -398,7 +398,9 @@ span {
 .radio-filter {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 25px;
+  width: 78%;
 }
 
 .radio-style {
@@ -481,11 +483,19 @@ Noted - With Side Menu the Main Content Area is VW - 255px
   #services-row {
     width: 90vw;
   }
+
+  .radio-filter {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 630px) {
   .solo-accolade {
     width: 60%;
     height: 75px;
+  }
+
+  #services {
+    width: 90vw;
   }
 }
