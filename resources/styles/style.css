@@ -385,12 +385,31 @@ span {
 }
 /* +++++ END SERVICES Section ++++++ */
 
+/* +++++ SKILLS Section ++++++ */
+
 #skills {
   /* Combine Section CSS into one*/
   width: calc(90vw - 255px);
   height: auto;
   text-align: left;
   margin: 100px 0 50px;
+}
+
+.radio-filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.radio-style {
+  width: fit-content;
+  background-color: #fffaf2;
+  border-radius: 16px;
+  color: #454545;
+  font-size: 18px;
+  font-weight: 550;
+  font-family: Poppins;
+  padding: 4px 20px;
 }
 
 /* ######## FOOTER ############ */
