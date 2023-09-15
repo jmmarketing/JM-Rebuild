@@ -404,12 +404,22 @@ span {
 .radio-style {
   width: fit-content;
   background-color: #fffaf2;
-  border-radius: 16px;
+  border-radius: 22px;
   color: #454545;
   font-size: 18px;
   font-weight: 550;
   font-family: Poppins;
-  padding: 4px 20px;
+  padding: 0px 20px 8px;
+}
+
+.radio-style input[type="radio"] {
+  font: inherit;
+  accent-color: #8966b5;
+  width: 25px;
+  height: 25px;
+  /* border: 0.15em solid currentColor; */
+  /* border-radius: 50%; */
+  transform: translateY(0.35em);
 }
 
 /* ######## FOOTER ############ */
