@@ -342,7 +342,7 @@ span {
 
 /* +++++ SERVICES Section ++++++ */
 #services {
-  width: 100%;
+  width: calc(90vw - 255px);
   height: auto;
   text-align: left;
   margin: 100px 0 50px;
@@ -351,12 +351,12 @@ span {
 #services-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 45px;
-  max-width: 70vw;
+  gap: 2vw;
+  width: 100%;
 }
 
 .service-card {
-  width: 300px;
+  width: 16.5vw;
   /* height: 345px; */
   border-radius: 0px 0px 45px 0px;
   border: 4px solid #fffaf2;
@@ -396,7 +396,18 @@ footer {
 
 Over 1024 - Side Nav - Main Content Margin Left Adjusted
 Under 1024 - Top Nav - Main Content Left Adjusted
+Noted - With Side Menu the Main Content Area is VW - 255px
            - */
+
+@media screen and (max-width: 1200px) {
+  #services {
+    width: 65vw;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 992px) {
   .pad-left-8 {
@@ -426,6 +437,10 @@ Under 1024 - Top Nav - Main Content Left Adjusted
 
   #hero-scroll {
     left: 0;
+  }
+
+  #services-row {
+    width: 90vw;
   }
 }
 
