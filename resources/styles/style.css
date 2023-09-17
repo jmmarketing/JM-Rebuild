@@ -389,7 +389,7 @@ span {
 
 #skills {
   /* Combine Section CSS into one*/
-  width: 90vw;
+  width: calc(90vw - 255px);
   height: auto;
   text-align: left;
   margin: 100px 0 50px;
@@ -400,7 +400,7 @@ span {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 25px;
-  width: 78%;
+  width: 100%;
 }
 
 .radio-style {
@@ -424,6 +424,50 @@ span {
   transform: translateY(0.35em);
 }
 
+#skills-card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px 0;
+  gap: 15px;
+}
+
+.skill-card {
+  width: 230px;
+  height: 85px;
+  border-radius: 15px;
+  background-color: #454545;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2),
+    5px 5px 7px 0px rgba(0, 0, 0, 0.2),
+    -1px -1px 2px 0px rgba(255, 250, 242, 0.1),
+    -5px -5px 7px 0px rgba(255, 250, 242, 0.05);
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  gap: 15px;
+}
+
+.skill-icon-box {
+  background-color: #fffaf2;
+  border-radius: 15px;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.skill-card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.skill-card-title,
+.skill-card-subtitle {
+  padding: 2px 0;
+  margin: 0;
+}
 /* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
@@ -456,6 +500,7 @@ Noted - With Side Menu the Main Content Area is VW - 255px
   }
   .mobile-nav {
     visibility: visible;
+    z-index: 1;
   }
 
   .side-nav {
@@ -480,7 +525,8 @@ Noted - With Side Menu the Main Content Area is VW - 255px
     left: 0;
   }
 
-  #services-row {
+  #services,
+  #skills {
     width: 90vw;
   }
 
