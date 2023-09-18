@@ -27,9 +27,10 @@ class App {
   #skills = [];
   constructor() {
     menu.addEventListener("click", this._toggleMobileMenu);
+    this._initiateSkills();
     this._renderSkillsCards(skillsArr);
     skillsRadioBtn.forEach((btn) =>
-      btn.addEventListener("click", this._toggleSkillsCards.bind(this))
+      btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
   }
 
@@ -69,16 +70,47 @@ class App {
       mobileOverlay.classList.toggle("open");
   }
 
-  _toggleSkillsCards(e) {
+  _toggleSkillsRadio(e) {
     this._renderSkillsCards(skillsArr, e.target.id);
   }
+
+  /* ----- Data Creation ----- */
+  _initiateSkills() {
+    new Skill("HTML5", "5+", "html5.svg", ["design-dev"]);
+    new Skill("Javascript", "2-3", "javascript.png", ["design-dev"]);
+    new Skill("CSS3", "5+", "CSS3.png", ["design-dev"]);
+    new Skill("Wordpress", "5+", "wordpress.png", ["design-dev"]);
+    new Skill("Shopify", "5+", "shopify.png", ["design-dev"]);
+    new Skill("Unbounce", "5+", "unbounce.png", ["design-dev", "marketing"]);
+    new Skill("Swipe Pages", "2-3", "swipepages.png", [
+      "design-dev",
+      "marketing",
+    ]);
+    new Skill("Zapier", "4-5", "zapier.png", ["marketing", "technology"]);
+    new Skill("Pabbly Connect", "1-2", "pabbly.png", [
+      "technology",
+      "marketing",
+    ]);
+    new Skill("Make", "1-2", "make.png", ["technology", "marketing"]);
+    new Skill("Photoshop", "5+", "photoshop.png", ["design-dev", "marketing"]);
+    new Skill("Figma", "0-1", "figma.png", ["design-dev"]);
+    new Skill("Bootstrap", "1-2", "bootstrap.png", ["design-dev"]);
+    new Skill("Analytics", "5+", "analytics.png", ["marketing", "technology"]);
+    new Skill("Tag Manager", "5+", "gtm.png", ["marketing", "technology"]);
+    new Skill("SASS", "0-1", "sass.png", ["design-dev"]);
+    new Skill("React", "1-2", "react.png", ["design-dev"]);
+    new Skill("Svelte", "0-1", "svelte.png", ["design-dev"]);
+
+    new Skill("Git", "1-2", "html5.svg", ["design-dev"]);
+    new Skill("Node.js", "0-1", "html5.svg", ["design-dev"]);
+    new Skill("SEO", "5+", "html5.svg", ["marketing"]);
+    new Skill("Stripe", "4-5", "html5.svg", ["design-dev", "technology"]);
+    new Skill("Google Ads", "5+", "html5.svg", ["marketing"]);
+    new Skill("Adwords Editor", "5+", "html5.svg", ["technology"]);
+    new Skill("MailChimp", "5+", "html5.svg", ["marketing", "technology"]);
+    new Skill("MailShake", "5+", "html5.svg", ["technology"]);
+    new Skill("Meta Ads", "2-3", "html5.svg", ["technology"]);
+  }
 }
-
-const skill_HTML5 = new Skill("HTML5", "5+", "html5.svg", [
-  "design-dev",
-  "technology",
-]);
-
-const skill_CSS = new Skill("CSS3", "5+", "html5.svg", ["design-dev"]);
 
 const app = new App();
