@@ -37,6 +37,10 @@ class App {
       mobileOverlay.classList.toggle("open");
   }
 
+  _clearSkillCards() {
+    document.querySelectorAll(".skill-card").forEach((el) => el.remove());
+  }
+
   _renderSkillsCards(arr, type = "all") {
     arr.forEach((skill) => {
       const html = `
