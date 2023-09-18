@@ -12,7 +12,7 @@ class Skill {
   constructor(name, exp, imgName, type) {
     this.name = name;
     this.exp = exp;
-    this.img = `./assets/images/${imgName}`;
+    this.img = `./assets/icons/${imgName}`;
     this.type = [...type];
     this._pushToArray();
   }
@@ -101,15 +101,19 @@ class App {
     new Skill("React", "1-2", "react.png", ["design-dev"]);
     new Skill("Svelte", "0-1", "svelte.png", ["design-dev"]);
 
-    new Skill("Git", "1-2", "html5.svg", ["design-dev"]);
-    new Skill("Node.js", "0-1", "html5.svg", ["design-dev"]);
-    new Skill("SEO", "5+", "html5.svg", ["marketing"]);
-    new Skill("Stripe", "4-5", "html5.svg", ["design-dev", "technology"]);
-    new Skill("Google Ads", "5+", "html5.svg", ["marketing"]);
-    new Skill("Adwords Editor", "5+", "html5.svg", ["technology"]);
-    new Skill("MailChimp", "5+", "html5.svg", ["marketing", "technology"]);
-    new Skill("MailShake", "5+", "html5.svg", ["technology"]);
-    new Skill("Meta Ads", "2-3", "html5.svg", ["technology"]);
+    new Skill("Git", "1-2", "git.png", ["design-dev"]);
+    new Skill("Node.js", "0-1", "nodejs.png", ["design-dev"]);
+    new Skill("SEO", "5+", "seo.png", ["marketing"]);
+    new Skill("Stripe", "4-5", "stripe.png", ["design-dev", "technology"]);
+    new Skill("Google Ads", "5+", "google-ads.png", ["marketing"]);
+    new Skill("Ads Editor", "5+", "ad-editor.png", ["technology"]);
+    new Skill("MailChimp", "5+", "mailchimp.png", ["marketing", "technology"]);
+    new Skill("MailShake", "5+", "mailshake.png", ["technology"]);
+    new Skill("Meta Ads", "2-3", "meta-ads.png", ["marketing"]);
+    new Skill("Meta Apps", "5+", "meta.png", ["marketing"]);
+
+    new Skill("RapidAPI", "1-2", "rapid-api.png", ["technology"]);
+    new Skill("Postman", "1-2", "postman.png", ["technology"]);
   }
 }
 
