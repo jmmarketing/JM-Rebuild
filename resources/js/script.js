@@ -42,6 +42,9 @@ class App {
   }
 
   _renderSkillsCards(arr, type = "all") {
+    if (type !== "all")
+      arr = arr.filter((skillObj) => skillObj.type.includes(type));
+
     arr.forEach((skill) => {
       const html = `
       <div class="skill-card">
