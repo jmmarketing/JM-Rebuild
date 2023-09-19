@@ -47,6 +47,12 @@ class Casestudy {
 class App {
   #skills = [];
   constructor() {
+    this._init();
+  }
+
+  /* ----- Initialize Site -------*/
+
+  _init() {
     menu.addEventListener("click", this._toggleMobileMenu);
     this._initiateSkills();
     this._renderSkillsCards(skillsArr);
@@ -73,6 +79,12 @@ class App {
     document.querySelectorAll(".skill-card").forEach((el) => el.remove());
   }
 
+  _clearCasestudies() {
+    document
+      .querySelectorAll(".casestudy-card")
+      .forEach((card) => card.remove());
+  }
+
   _renderSkillsCards(arr, type = "all") {
     this._clearSkillCards();
     if (type !== "all")
@@ -92,12 +104,6 @@ class App {
 
       skillCardContainer.insertAdjacentHTML("beforeend", html);
     });
-  }
-
-  _clearCasestudies() {
-    document
-      .querySelectorAll(".casestudy-card")
-      .forEach((card) => card.remove());
   }
 
   _renderCasestudyCards(arr, type = "all") {
