@@ -434,7 +434,7 @@ span {
 
 .skill-card {
   width: 235px;
-  height: 85px;
+  /* height: 85px; */
   border-radius: 15px;
   background-color: #454545;
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2),
@@ -443,7 +443,7 @@ span {
     -5px -5px 7px 0px rgba(255, 250, 242, 0.05);
   display: inline-flex;
   align-items: center;
-  padding: 7px 10px;
+  padding: 10px 10px;
   gap: 15px;
 }
 
@@ -482,6 +482,19 @@ span {
   font-size: 18px;
   font-weight: 600;
   margin-top: 40px;
+}
+
+#casestudy-nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 90%;
+  margin-top: 40px;
+}
+
+#casestudy-card-container {
+  display: inline-flex;
+  gap: 15px;
 }
 
 .casestudy-card {
@@ -591,7 +604,8 @@ Noted - With Side Menu the Main Content Area is VW - 255px
   }
 
   #services,
-  #skills {
+  #skills,
+  #casestudy {
     width: 90vw;
   }
 
@@ -608,5 +622,11 @@ Noted - With Side Menu the Main Content Area is VW - 255px
 
   #services {
     width: 90vw;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .skill-card {
+    width: 70vw;
   }
 }
