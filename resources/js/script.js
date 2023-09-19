@@ -5,6 +5,9 @@ const menu = document.querySelector("header");
 const mobileOverlay = document.querySelector(".mobile-menu-overlay");
 const skillCardContainer = document.querySelector("#skills-card-container");
 const skillsRadioBtn = document.querySelectorAll('input[name="skillset"]');
+const casestudyContainer = document.querySelector("#casestudy-card-container");
+const nextCasestudy = document.querySelector(".fa-arrow-right");
+const prevCasestudy = document.querySelector(".fa-arrow-left");
 
 let skillsArr = [];
 /*##### APP DATA ####### */
@@ -32,6 +35,8 @@ class App {
     skillsRadioBtn.forEach((btn) =>
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
+    nextCasestudy.addEventListener("click", this._scrollCaseStudies);
+    prevCasestudy.addEventListener("click", this._scrollCaseStudies);
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -59,6 +64,12 @@ class App {
 
       skillCardContainer.insertAdjacentHTML("beforeend", html);
     });
+  }
+
+  _scrollCaseStudies(e) {
+    e.target.dataset.slide === "next"
+      ? (casestudyContainer.scrollLeft += 370)
+      : (casestudyContainer.scrollLeft -= 370);
   }
 
   /* ----- Event Listener Functions ----- */
