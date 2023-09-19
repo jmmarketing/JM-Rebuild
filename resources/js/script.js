@@ -55,6 +55,10 @@ class App {
     skillsRadioBtn.forEach((btn) =>
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
+
+    casestudyRadioBtn.forEach((btn) =>
+      btn.addEventListener("click", this._toggleCasestudyRadio.bind(this))
+    );
     nextCasestudy.addEventListener("click", this._scrollCaseStudies);
     prevCasestudy.addEventListener("click", this._scrollCaseStudies);
 
@@ -158,6 +162,10 @@ class App {
     this._renderSkillsCards(skillsArr, e.target.id);
   }
 
+  _toggleCasestudyRadio(e) {
+    this._renderCasestudyCards(casestudyArr, e.target.id);
+  }
+
   /* ----- Data Creation ----- */
   _initiateSkills() {
     new Skill("HTML5", "5+", "html5.svg", ["design-dev"]);
@@ -213,7 +221,7 @@ class App {
       "PullsPlus-Logo-White.png",
       "PullsPlus-bg.jpg",
       ["Lead Gen.", "PPC", "Email", "A/B Testing", "Automation"],
-      ["design-dev", "technology"]
+      ["technology"]
     );
 
     new Casestudy(
@@ -258,7 +266,7 @@ class App {
       "PullsPlus-Logo-White.png",
       "PullsPlus-bg.jpg",
       ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
-      ["marketing", "technology", "design-dev"]
+      ["marketing"]
     );
   }
 }
