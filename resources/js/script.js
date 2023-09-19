@@ -5,23 +5,41 @@ const menu = document.querySelector("header");
 const mobileOverlay = document.querySelector(".mobile-menu-overlay");
 const skillCardContainer = document.querySelector("#skills-card-container");
 const skillsRadioBtn = document.querySelectorAll('input[name="skillset"]');
+const casestudyRadioBtn = document.querySelectorAll('input[name="casestudy"]');
 const casestudyContainer = document.querySelector("#casestudy-card-container");
 const nextCasestudy = document.querySelector(".fa-arrow-right");
 const prevCasestudy = document.querySelector(".fa-arrow-left");
 
 let skillsArr = [];
+let casestudyArr = [];
 /*##### APP DATA ####### */
 class Skill {
-  constructor(name, exp, imgName, type) {
+  constructor(name, exp, imgName, typeArr) {
     this.name = name;
     this.exp = exp;
     this.img = `./assets/icons/${imgName}`;
-    this.type = [...type];
+    this.type = typeArr;
     this._pushToArray();
   }
 
   _pushToArray() {
     skillsArr.push(this);
+  }
+}
+
+class Casestudy {
+  constructor(name, desc, logoName, bgImgName, tagArr, typeArr) {
+    this.name = name;
+    this.description = desc;
+    this.logo = `./assets/images/case-study/${logoName}`;
+    this.bgImage = `./assets/images/case-study/${bgImgName}`;
+    this.tags = tagArr;
+    this.type = typeArr;
+    this._pushToArray();
+  }
+
+  _pushToArray() {
+    casestudyArr.push(this);
   }
 }
 
@@ -32,11 +50,17 @@ class App {
     menu.addEventListener("click", this._toggleMobileMenu);
     this._initiateSkills();
     this._renderSkillsCards(skillsArr);
+    this._initiateCasestudies();
+    this._renderCasestudyCards(casestudyArr);
     skillsRadioBtn.forEach((btn) =>
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
     nextCasestudy.addEventListener("click", this._scrollCaseStudies);
     prevCasestudy.addEventListener("click", this._scrollCaseStudies);
+
+    casestudyContainer.addEventListener("ondrag", (e) => {
+      console.log(e);
+    });
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -63,6 +87,55 @@ class App {
       </div>`;
 
       skillCardContainer.insertAdjacentHTML("beforeend", html);
+    });
+  }
+
+  _clearCasestudies() {
+    document
+      .querySelectorAll(".casestudy-card")
+      .forEach((card) => card.remove());
+  }
+
+  _renderCasestudyCards(arr, type = "all") {
+    this._clearCasestudies();
+
+    if (type !== "all")
+      arr = arr.filter((casestudyObj) => casestudyObj.type.includes(type));
+
+    document.querySelector(
+      "#casestudy-count"
+    ).textContent = `/${arr.length}/ Projects`;
+    arr.forEach((casestudy) => {
+      let tagsHTML = "";
+      casestudy.tags.forEach(
+        (tag) => (tagsHTML += `<p class="casestudy-tag">${tag}</p>`)
+      );
+      const html = `
+    <div
+    class="casestudy-card"
+    style="
+      background: linear-gradient(
+          rgba(86, 86, 86, 0.7),
+          rgba(86, 86, 86, 0.7)
+        ),
+        url('${casestudy.bgImage}');
+      background-size: cover;
+    "
+  >
+          <p class="casestudy-title">${casestudy.name}</p>
+          <p class="casestudy-description">
+            ${casestudy.description}
+          </p>
+          <img
+            src="${casestudy.logo}"
+            class="casestudy-logo"
+          />
+          <div class="casestudy-tag-container">
+            ${tagsHTML}
+          </div>
+  </div>`;
+
+      casestudyContainer.insertAdjacentHTML("beforeend", html);
     });
   }
 
@@ -122,6 +195,71 @@ class App {
 
     new Skill("RapidAPI", "1-2", "rapid-api.png", ["technology"]);
     new Skill("Postman", "1-2", "postman.png", ["technology"]);
+  }
+
+  _initiateCasestudies() {
+    new Casestudy(
+      "PullsPlus",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "PPC", "Email", "A/B Testing", "Automation"],
+      ["design-dev", "marketing", "technology"]
+    );
+
+    new Casestudy(
+      "Example 1",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "PPC", "Email", "A/B Testing", "Automation"],
+      ["design-dev", "technology"]
+    );
+
+    new Casestudy(
+      "Example 2",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
+      ["technology"]
+    );
+
+    new Casestudy(
+      "Example 3",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
+      ["marketing"]
+    );
+
+    new Casestudy(
+      "Example 4",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
+      ["marketing", "design-dev"]
+    );
+
+    new Casestudy(
+      "Example 5",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
+      ["design-dev", "technology"]
+    );
+
+    new Casestudy(
+      "Example 6",
+      "Local service company | Scaled to over 6-figures. Scaled to over 6-figures.",
+      "PullsPlus-Logo-White.png",
+      "PullsPlus-bg.jpg",
+      ["Lead Gen.", "SEO", "Social", "eCommerce", "Automation"],
+      ["marketing", "technology", "design-dev"]
+    );
   }
 }
 
