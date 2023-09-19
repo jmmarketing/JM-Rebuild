@@ -86,12 +86,9 @@ class App {
       "design-dev",
       "marketing",
     ]);
-    new Skill("Zapier", "4-5", "zapier.png", ["marketing", "technology"]);
-    new Skill("Pabbly Connect", "1-2", "pabbly.png", [
-      "technology",
-      "marketing",
-    ]);
-    new Skill("Make", "1-2", "make.png", ["technology", "marketing"]);
+    new Skill("Zapier", "4-5", "zapier.png", ["technology"]);
+    new Skill("Pabbly Connect", "1-2", "pabbly.png", ["technology"]);
+    new Skill("Make", "1-2", "make.png", ["technology"]);
     new Skill("Photoshop", "5+", "photoshop.png", ["design-dev", "marketing"]);
     new Skill("Figma", "0-1", "figma.png", ["design-dev"]);
     new Skill("Bootstrap", "1-2", "bootstrap.png", ["design-dev"]);
