@@ -62,15 +62,12 @@ class App {
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
 
-    casestudyRadioBtn.forEach((btn) =>
-      btn.addEventListener("click", this._toggleCasestudyRadio.bind(this))
-    );
+    casestudyRadioBtn.forEach((btn) => {
+      console.log(btn);
+      btn.addEventListener("click", this._toggleCasestudyRadio.bind(this));
+    });
     nextCasestudy.addEventListener("click", this._scrollCaseStudies);
     prevCasestudy.addEventListener("click", this._scrollCaseStudies);
-
-    casestudyContainer.addEventListener("ondrag", (e) => {
-      console.log(e);
-    });
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -169,7 +166,8 @@ class App {
   }
 
   _toggleCasestudyRadio(e) {
-    this._renderCasestudyCards(casestudyArr, e.target.id);
+    console.log(e);
+    this._renderCasestudyCards(casestudyArr, e.target.value);
   }
 
   /* ----- Data Creation ----- */
