@@ -62,6 +62,9 @@ span {
   /* cursor: pointer; */
 }
 
+.click-it {
+  cursor: pointer;
+}
 /* ###### Navigation ##### */
 .side-nav {
   background-color: #363636;
