@@ -20,6 +20,7 @@ h4 {
 
 h1 {
   font-size: 48px;
+  margin: 0;
 }
 
 h2 {
@@ -555,6 +556,59 @@ span {
 }
 /* +++++ Experience  Section ++++++ */
 
+#experience {
+  width: calc(90vw - 255px);
+  height: auto;
+  text-align: left;
+}
+#experience-title {
+  max-width: 1440px;
+  width: 90%;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+
+#download-cv {
+  font-size: 24px;
+  color: #fffaf2;
+  font-weight: 200;
+  text-transform: uppercase;
+  text-decoration: none;
+  align-self: center;
+}
+
+.experience-card {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 1440px;
+  width: 90%;
+  background-color: #363636;
+  border-radius: 15px;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2),
+    5px 5px 7px 0px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  padding: 15px 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exp-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  width: 90%;
+  margin: 0;
+}
+
+.exp-card-title span {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.exp-description {
+  font-size: 16px;
+}
+
 /* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
@@ -614,7 +668,8 @@ Noted - With Side Menu the Main Content Area is VW - 255px
 
   #services,
   #skills,
-  #casestudy {
+  #casestudy,
+  #experience {
     width: 90vw;
   }
 
