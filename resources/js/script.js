@@ -63,7 +63,6 @@ class App {
     );
 
     casestudyRadioBtn.forEach((btn) => {
-      console.log(btn);
       btn.addEventListener("click", this._toggleCasestudyRadio.bind(this));
     });
     nextCasestudy.addEventListener("click", this._scrollCaseStudies);
@@ -273,6 +272,17 @@ class App {
       ["marketing"]
     );
   }
+}
+
+document
+  .querySelectorAll(".experience-card")
+  .forEach((card) => card.addEventListener("click", toggleExperienceCard));
+
+function toggleExperienceCard(e) {
+  e.target.parentElement.lastElementChild.classList.toggle("hide");
+  const el = e.target.parentElement;
+  console.log(el);
+  console.log(el.closest(".fa-eye"));
 }
 
 const app = new App();
