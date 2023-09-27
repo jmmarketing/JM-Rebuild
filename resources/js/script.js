@@ -279,10 +279,12 @@ document
   .forEach((card) => card.addEventListener("click", toggleExperienceCard));
 
 function toggleExperienceCard(e) {
-  e.target.parentElement.lastElementChild.classList.toggle("hide");
   const el = e.target.parentElement;
-  console.log(el);
-  console.log(el.closest(".fa-eye"));
+  const icon = el.querySelector("i");
+
+  el.lastElementChild.toggleAttribute("hidden");
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
 }
 
 const app = new App();
