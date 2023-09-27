@@ -67,6 +67,12 @@ class App {
     });
     nextCasestudy.addEventListener("click", this._scrollCaseStudies);
     prevCasestudy.addEventListener("click", this._scrollCaseStudies);
+
+    document
+      .querySelectorAll(".experience-card")
+      .forEach((card) =>
+        card.addEventListener("click", this._toggleExperienceCard)
+      );
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -165,8 +171,17 @@ class App {
   }
 
   _toggleCasestudyRadio(e) {
-    console.log(e);
+    // console.log(e);
     this._renderCasestudyCards(casestudyArr, e.target.value);
+  }
+
+  _toggleExperienceCard(e) {
+    const el = this;
+    const icon = el.querySelector("i");
+
+    el.lastElementChild.toggleAttribute("hidden");
+    icon.classList.toggle("fa-eye");
+    icon.classList.toggle("fa-eye-slash");
   }
 
   /* ----- Data Creation ----- */
@@ -272,19 +287,6 @@ class App {
       ["marketing"]
     );
   }
-}
-
-document
-  .querySelectorAll(".experience-card")
-  .forEach((card) => card.addEventListener("click", toggleExperienceCard));
-
-function toggleExperienceCard(e) {
-  const el = e.target.parentElement;
-  const icon = el.querySelector("i");
-
-  el.lastElementChild.toggleAttribute("hidden");
-  icon.classList.toggle("fa-eye");
-  icon.classList.toggle("fa-eye-slash");
 }
 
 const app = new App();
