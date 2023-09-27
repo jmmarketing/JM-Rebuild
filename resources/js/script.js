@@ -175,7 +175,7 @@ class App {
     this._renderCasestudyCards(casestudyArr, e.target.value);
   }
 
-  _toggleExperienceCard(e) {
+  _toggleExperienceCard() {
     const el = this;
     const icon = el.querySelector("i");
 

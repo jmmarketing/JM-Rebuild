@@ -621,6 +621,91 @@ span {
   text-align: right;
 }
 
+/* +++++ Rates Section ++++++ */
+#rates {
+  width: calc(90vw - 255px);
+  height: auto;
+  text-align: left;
+  margin: 100px 0 50px;
+}
+
+/* --- Toggle CSS --- */
+#switch-container {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 340px;
+}
+
+.switch-button {
+  background: #fffaf2;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 200px;
+  text-align: left;
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #454545;
+  position: relative;
+  padding-right: 135px;
+}
+.switch-button:before {
+  content: "Long Term";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 17px;
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.switch-button-checkbox {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+}
+.switch-button-checkbox:checked + .switch-button-label:before {
+  transform: translateX(168px);
+  transition: transform 300ms linear;
+}
+
+.switch-button-checkbox + .switch-button-label {
+  position: relative;
+  padding: 15px 0;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+.switch-button-checkbox + .switch-button-label:before {
+  content: "";
+  background: #ff8e73;
+  height: 90%;
+  width: 80%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  border-radius: 30px;
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+
+.switch-button-label-span {
+  position: relative;
+  padding-left: 28px;
+}
+
 /* ######## FOOTER ############ */
 footer {
   border: 2px solid red;
@@ -683,7 +768,8 @@ Noted - With Side Menu the Main Content Area is VW - 255px
   #casestudy,
   #experience,
   .experience-card,
-  #experience-title {
+  #experience-title,
+  #rates {
     width: 90vw;
   }
 
