@@ -679,7 +679,8 @@ span {
   margin: 0;
 }
 
-.rate-card .fa-solid {
+.rate-card .fa-solid,
+.rate-card .fa-regular {
   font-size: 4em;
   padding-top: 20px;
 }
@@ -766,11 +767,67 @@ span {
 
 /* ######## FOOTER ############ */
 footer {
-  border: 2px solid red;
-  max-width: 1440px;
+  border-top: 5px solid #fffaf2;
+  /* max-width: 1440px; */
+  background-color: #2b2525;
   margin-left: 255px;
   width: 100vw;
-  text-align: center;
+  padding: 75px 0;
+}
+
+#footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1220px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#footer-container img {
+  width: 130px;
+  height: auto;
+}
+
+#footer-links {
+  display: flex;
+  width: 350px;
+  flex-wrap: wrap;
+  gap: 25px 45px;
+  align-items: center;
+
+  & a {
+    font-size: 18px;
+    color: #fffaf2;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+#footer-legal {
+  width: 100%;
+  border-top: 2px solid #fffaf2;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 300px;
+  margin-right: 100px;
+}
+
+.contact-button {
+  border-radius: 12px;
+  background: #ff8e73;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px 30px;
+  color: #2b2525;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.contact-button:hover {
+  background-color: #b488ea;
+  color: #fffaf2;
 }
 
 /* Break Points 
