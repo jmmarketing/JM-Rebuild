@@ -9,6 +9,7 @@ const casestudyRadioBtn = document.querySelectorAll('input[name="casestudy"]');
 const casestudyContainer = document.querySelector("#casestudy-card-container");
 const nextCasestudy = document.querySelector(".fa-arrow-right");
 const prevCasestudy = document.querySelector(".fa-arrow-left");
+const rateToggle = document.querySelector(".switch-button");
 
 let skillsArr = [];
 let casestudyArr = [];
@@ -73,6 +74,7 @@ class App {
       .forEach((card) =>
         card.addEventListener("click", this._toggleExperienceCard)
       );
+    rateToggle.addEventListener("click", this._toggleRateOptions);
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -184,6 +186,10 @@ class App {
     icon.classList.toggle("fa-eye-slash");
   }
 
+  _toggleRateOptions() {
+    document.querySelector("#short-term").classList.toggle("hide");
+    document.querySelector("#long-term").classList.toggle("hide");
+  }
   /* ----- Data Creation ----- */
   _initiateSkills() {
     new Skill("HTML5", "5+", "html5.svg", ["design-dev"]);
