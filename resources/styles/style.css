@@ -592,7 +592,7 @@ span {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2),
     5px 5px 7px 0px rgba(0, 0, 0, 0.2);
   flex-wrap: wrap;
-  padding: 15px 40px;
+  padding: 15px 25px;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -610,6 +610,9 @@ span {
   font-weight: 300;
 }
 
+#exp-info {
+  width: 100%;
+}
 .exp-description {
   font-size: 16px;
 }
@@ -619,6 +622,22 @@ span {
   font-size: 18px;
   font-weight: 600;
   text-align: right;
+  align-self: flex-end;
+}
+
+.exp-brands {
+  display: inline-flex;
+  column-gap: 4vw;
+  width: 100%;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.exp-brands img {
+  max-width: 150px;
+  min-width: 120px;
+  height: auto;
+  width: 100%;
 }
 
 /* +++++ Rates Section ++++++ */
@@ -630,12 +649,6 @@ span {
 }
 
 /* --- Toggle CSS --- */
-#switch-container {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  max-width: 340px;
-}
 
 .switch-button {
   background: #fffaf2;
@@ -650,6 +663,9 @@ span {
   color: #454545;
   position: relative;
   padding-right: 135px;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2),
+    5px 5px 7px 0px rgba(0, 0, 0, 0.2),
+    2px 2px 5px 0px rgba(0, 0, 0, 0.25) inset;
 }
 .switch-button:before {
   content: "Long Term";
