@@ -68,7 +68,7 @@ span {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 /* ###### Navigation ##### */
 .side-nav {
