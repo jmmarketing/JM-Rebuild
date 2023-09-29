@@ -10,6 +10,7 @@ const casestudyContainer = document.querySelector("#casestudy-card-container");
 const nextCasestudy = document.querySelector(".fa-arrow-right");
 const prevCasestudy = document.querySelector(".fa-arrow-left");
 const rateToggle = document.querySelector(".switch-button");
+const navButtons = document.querySelectorAll(".nav-button");
 
 let skillsArr = [];
 let casestudyArr = [];
@@ -59,6 +60,11 @@ class App {
     this._renderSkillsCards(skillsArr);
     this._initiateCasestudies();
     this._renderCasestudyCards(casestudyArr);
+
+    navButtons.forEach((btn) =>
+      btn.addEventListener("click", this._smoothScrollNav)
+    );
+
     skillsRadioBtn.forEach((btn) =>
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
@@ -161,7 +167,7 @@ class App {
 
   /* ----- Event Listener Functions ----- */
   _toggleMobileMenu(e) {
-    console.log(e);
+    console.log("Relook at Mobile Menu Toggle", e);
     if (e.target.classList.contains("fa-bars"))
       mobileOverlay.classList.toggle("open");
     if (e.target.classList.contains("fa-x"))
@@ -189,6 +195,17 @@ class App {
   _toggleRateOptions() {
     document.querySelector("#short-term").classList.toggle("hide");
     document.querySelector("#long-term").classList.toggle("hide");
+  }
+
+  _smoothScrollNav(e) {
+    e.preventDefault();
+    console.dir(e.target);
+    if (e.target.parentElement.id.includes("overlay"))
+      mobileOverlay.classList.toggle("open");
+
+    document
+      .querySelector(e.target.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
   }
   /* ----- Data Creation ----- */
   _initiateSkills() {
