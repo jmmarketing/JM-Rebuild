@@ -1,7 +1,7 @@
 "use strict";
 
 /* ###### DOM ELEMENTS ##########*/
-const menu = document.querySelector("header");
+const menu = document.querySelector(".mobile-nav");
 const mobileOverlay = document.querySelector(".mobile-menu-overlay");
 const skillCardContainer = document.querySelector("#skills-card-container");
 const skillsRadioBtn = document.querySelectorAll('input[name="skillset"]');
@@ -56,6 +56,7 @@ class App {
 
   _init() {
     menu.addEventListener("click", this._toggleMobileMenu);
+    mobileOverlay.addEventListener("click", this._toggleMobileMenu);
     this._initiateSkills();
     this._renderSkillsCards(skillsArr);
     this._initiateCasestudies();
