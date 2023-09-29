@@ -447,6 +447,7 @@ span {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 25px 0;
   gap: 15px;
 }
@@ -966,6 +967,18 @@ Noted - With Side Menu the Main Content Area is VW - 255px
 
 @media screen and (max-width: 585px) {
   .skill-card {
-    width: 70vw;
+    width: fit-content;
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .skill-card-title,
+  .skill-card-subtitle {
+    text-align: center;
+  }
+
+  .skill-icon-box img {
+    width: 50px;
+    height: auto;
   }
 }
