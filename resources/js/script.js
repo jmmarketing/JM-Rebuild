@@ -3,6 +3,8 @@
 /* ###### DOM ELEMENTS ##########*/
 const menu = document.querySelector(".mobile-nav");
 const mobileOverlay = document.querySelector(".mobile-menu-overlay");
+const mobileNavImg = document.querySelector("#jm-nav-img");
+const heroImg = document.querySelector("#hero-img");
 const skillCardContainer = document.querySelector("#skills-card-container");
 const skillsRadioBtn = document.querySelectorAll('input[name="skillset"]');
 const casestudyRadioBtn = document.querySelectorAll('input[name="casestudy"]');
@@ -168,7 +170,6 @@ class App {
 
   /* ----- Event Listener Functions ----- */
   _toggleMobileMenu(e) {
-    console.log("Relook at Mobile Menu Toggle", e);
     if (e.target.classList.contains("fa-bars"))
       mobileOverlay.classList.toggle("open");
     if (e.target.classList.contains("fa-x"))
@@ -200,7 +201,7 @@ class App {
 
   _smoothScrollNav(e) {
     e.preventDefault();
-    console.dir(e.target);
+    // console.dir(e.target);
     if (e.target.parentElement.id.includes("overlay"))
       mobileOverlay.classList.toggle("open");
 
@@ -312,5 +313,15 @@ class App {
     );
   }
 }
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const amountVisiible = entry.intersectionRatio;
+    amountVisiible === 0
+      ? mobileNavImg.classList.remove("hide")
+      : mobileNavImg.classList.add("hide");
+  });
+});
+observer.observe(heroImg);
 
 const app = new App();
