@@ -447,7 +447,6 @@ span {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin: 25px 0;
   gap: 15px;
 }
@@ -927,6 +926,9 @@ Noted - With Side Menu the Main Content Area is VW - 255px
     width: 100%;
   }
 
+  #skills-card-container {
+    justify-content: center;
+  }
   #footer-container {
     flex-direction: column;
     max-width: 85vw;
