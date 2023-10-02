@@ -776,6 +776,25 @@ span {
   padding-left: 28px;
 }
 
+/* ####### CONTACT OVERLAY */
+
+.contact-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw; /* Change 0 - 100vw to hide */
+  height: 100vh;
+  background-color: rgba(54, 54, 54, 0.99);
+  opacity: 1; /* change when apply open class*/
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.4s ease;
+}
+
 /* ######## FOOTER ############ */
 footer {
   border-top: 5px solid #fffaf2;
