@@ -241,7 +241,7 @@ span {
 }
 
 .open {
-  width: 100vw;
+  width: 100vw !important;
   opacity: 1;
 }
 
@@ -787,7 +787,7 @@ span {
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100vw; /* Change 0 - 100vw to hide */
+  width: 0vw; /* Change 0 - 100vw to hide */
   height: 100vh;
   background-color: rgba(54, 54, 54, 0.99);
   opacity: 1; /* change when apply open class*/

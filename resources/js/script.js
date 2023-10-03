@@ -13,6 +13,9 @@ const nextCasestudy = document.querySelector(".fa-arrow-right");
 const prevCasestudy = document.querySelector(".fa-arrow-left");
 const rateToggle = document.querySelector(".switch-button");
 const navButtons = document.querySelectorAll(".nav-button");
+const contactBtn = document.querySelectorAll("#contact");
+const contactOverlay = document.querySelector(".contact-screen");
+const closeContact = document.querySelector(".fa-circle-xmark");
 
 let skillsArr = [];
 let casestudyArr = [];
@@ -68,6 +71,9 @@ class App {
       btn.addEventListener("click", this._smoothScrollNav)
     );
 
+    contactBtn.forEach((btn) =>
+      btn.addEventListener("click", this._toggleContact)
+    );
     skillsRadioBtn.forEach((btn) =>
       btn.addEventListener("click", this._toggleSkillsRadio.bind(this))
     );
@@ -84,6 +90,8 @@ class App {
         card.addEventListener("click", this._toggleExperienceCard)
       );
     rateToggle.addEventListener("click", this._toggleRateOptions);
+
+    closeContact.addEventListener("click", this._toggleContact);
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -208,6 +216,11 @@ class App {
     document
       .querySelector(e.target.getAttribute("href"))
       .scrollIntoView({ behavior: "smooth" });
+  }
+
+  _toggleContact() {
+    contactOverlay.classList.toggle("open");
+    document.querySelector("#main-container").classList.toggle("hide");
   }
   /* ----- Data Creation ----- */
   _initiateSkills() {
