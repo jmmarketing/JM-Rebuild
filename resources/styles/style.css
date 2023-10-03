@@ -780,7 +780,7 @@ span {
   padding-left: 28px;
 }
 
-/* ####### CONTACT OVERLAY */
+/* ####### CONTACT OVERLAY #############*/
 
 .contact-screen {
   position: fixed;
@@ -801,12 +801,23 @@ span {
 
 #contact-container {
   max-width: 500px;
-  width: 100%;
+  width: 80vw;
   padding: 50px 0;
 
   & h2 {
     font-size: 48px;
     margin: 0;
+  }
+
+  & a {
+    display: block;
+    text-decoration: none;
+    color: #fffaf2;
+    padding: 10px 15px;
+
+    & span {
+      padding-right: 10px;
+    }
   }
 }
 
@@ -828,6 +839,7 @@ span {
   flex-direction: column;
   color: #454545;
   padding: 25px;
+  margin-top: 20px;
 
   & h3 {
     font-size: 32px;
