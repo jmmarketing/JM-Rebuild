@@ -545,16 +545,46 @@
 
         <form id="send-message">
           <h3>MESSAGE</h3>
-          <label for="name">Name</label>
+          <!-- <label for="name">Name</label> -->
           <input id="name" type="text" name="name" placeholder="Your Name" />
 
-          <label for="email">Email</label>
+          <!-- <label for="email">Email</label> -->
           <input id="email" type="text" name="email" placeholder="Email" />
 
-          <label for="phone">Phone</label>
+          <!-- <label for="phone">Phone</label> -->
           <input id="phone" type="text" name="phone" placeholder="Phone" />
 
-          <div id="form-interest"></div>
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Questions, inquiries, ideas, etc.."
+          ></textarea>
+
+          <p style="font-weight: 600">
+            Interested In:
+            <span style="font-weight: 400">(All that apply)</span>
+          </p>
+          <div id="form-checkbox">
+            <input type="checkbox" id="form-mkt" value="Marketing" />
+            <label for="form-mkt">Marketing</label>
+
+            <input type="checkbox" id="form-mkttech" value="Marketing Tech" />
+            <label for="form-mkttech">Marketing Tech.</label>
+
+            <input type="checkbox" id="form-dd" value="Design & Development" />
+            <label for="form-dd">Design & Dev.</label>
+
+            <input type="checkbox" id="form-cnslt" value="Consulting" />
+            <label for="form-cnslt">Consulting</label>
+
+            <input type="checkbox" id="form-retainer" value="Retainer" />
+            <label for="form-retainer">Retainer</label>
+
+            <input type="checkbox" id="form-prjct" value="Custom Project" />
+            <label for="form-prjct">Custom Project</label>
+          </div>
+
           <button type="submit">SEND MESSAGE</button>
         </form>
       </div>
