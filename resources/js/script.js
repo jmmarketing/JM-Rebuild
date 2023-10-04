@@ -346,8 +346,17 @@ sendBtn.addEventListener("click", (e) => {
     "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
   const form = document.forms["send-message"];
   const formInfo = new FormData(form);
-  console.log(formInfo.get("marketing"));
-  console.log(formInfo.get("marketing-tech"));
+  const intArray = [];
+
+  document.querySelectorAll('input[type="checkbox"]').forEach((box) => {
+    if (box.id.includes("form") && box.checked) intArray.push(box.value);
+  });
+  const interestedIn =
+    intArray.length > 2
+      ? intArray.join(", ").replace(/,(?![^,]*,)/, ", &")
+      : intArray.length === 2
+      ? intArray.join(", ").replace(/,(?![^,]*,)/, " &")
+      : intArray[0];
 
   const formDataObj = {
     name: formInfo.get("name"),
@@ -356,7 +365,7 @@ sendBtn.addEventListener("click", (e) => {
     message: formInfo.get("message"),
   };
 
-  console.log(formDataObj);
+  console.log(interestedIn);
 });
 
 const app = new App();
