@@ -116,7 +116,7 @@ class App {
       .addEventListener("change", this._formValidate.bind(this));
 
     document
-      .querySelector("nmessage")
+      .querySelector("#message")
       .addEventListener("change", this._formValidate.bind(this));
   }
 
@@ -365,15 +365,17 @@ class App {
     const formInfo = new FormData(form);
     const intArray = [];
 
-    document.querySelectorAll('input[type="checkbox"]').forEach((box) => {
-      if (box.id.includes("form") && box.checked) intArray.push(box.value);
-    });
+    document
+      .querySelectorAll('#send-message input[type="checkbox"]')
+      .forEach((box) => {
+        if (box.checked) intArray.push(box.value);
+      });
     const interestedIn =
       intArray.length > 2
         ? intArray.join(", ").replace(/,(?![^,]*,)/, ", &")
         : intArray.length === 2
         ? intArray.join(", ").replace(/,(?![^,]*,)/, " &")
-        : intArray[0];
+        : intArray[0] || "working together";
 
     this.#formDataObj = {
       date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
@@ -388,6 +390,7 @@ class App {
   }
 
   _formValidate(e) {
+    const field = e.target.id;
     const nameValid = new RegExp(
       "^(?=.*[a-z].*[a-z].*[a-z])[a-z\\s]{3,20}$",
       "i"
@@ -396,36 +399,43 @@ class App {
     const phoneValid = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
     const messageValid = new RegExp("^[a-z0-9.,():;&! -]{24,}$", "i");
 
-    if (e.target.id === "name" && nameValid.test(e.target.value)) {
-      e.target.classList.remove("formError");
-      this.#formDataObj.name = true;
-    } else {
-      e.target.classList.add("formError");
-      this.#formDataObj.name = false;
-    }
-
-    if (e.target.id === "email" && emailValid.test(e.target.value)) {
-      e.target.classList.remove("formError");
-      this.#formDataObj.email = true;
-    } else {
-      e.target.classList.add("formError");
-      this.#formDataObj.email = false;
-    }
-
-    if (e.target.id === "phone" && phoneValid.test(e.target.value)) {
-      e.target.classList.remove("formError");
-      this.#formDataObj.phone = true;
-    } else {
-      e.target.classList.add("formError");
-      this.#formDataObj.phone = false;
-    }
-
-    if (e.target.id === "message" && messageValid.test(e.target.value)) {
-      e.target.classList.remove("formError");
-      this.#formDataObj.message = true;
-    } else {
-      e.target.classList.add("formError");
-      this.#formDataObj.message = false;
+    switch (field) {
+      case "name":
+        if (nameValid.test(e.target.value)) {
+          e.target.classList.remove("formError");
+          this.#formDataObj.name = true;
+        } else {
+          e.target.classList.add("formError");
+          this.#formDataObj.name = false;
+        }
+        break;
+      case "email":
+        if (emailValid.test(e.target.value)) {
+          e.target.classList.remove("formError");
+          this.#formDataObj.email = true;
+        } else {
+          e.target.classList.add("formError");
+          this.#formDataObj.email = false;
+        }
+        break;
+      case "phone":
+        if (phoneValid.test(e.target.value)) {
+          e.target.classList.remove("formError");
+          this.#formDataObj.phone = true;
+        } else {
+          e.target.classList.add("formError");
+          this.#formDataObj.phone = false;
+        }
+        break;
+      case "message":
+        if (messageValid.test(e.target.value)) {
+          e.target.classList.remove("formError");
+          this.#formDataObj.message = true;
+        } else {
+          e.target.classList.add("formError");
+          this.#formDataObj.message = false;
+        }
+        break;
     }
 
     if (Object.values(this.#formDataObj).every((val) => val === true))
