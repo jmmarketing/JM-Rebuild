@@ -16,6 +16,9 @@ const navButtons = document.querySelectorAll(".nav-button");
 const contactBtn = document.querySelectorAll("#contact");
 const contactOverlay = document.querySelector(".contact-screen");
 const closeContact = document.querySelector(".fa-circle-xmark");
+const formTextFields = document.querySelectorAll(
+  "#send-message input[type='text']"
+);
 const sendBtn = document.querySelector('button[type="submit"]');
 
 let skillsArr = [];
@@ -103,21 +106,9 @@ class App {
 
     /*--------- testing ----- */
     sendBtn.addEventListener("click", this._sendWebhook.bind(this));
-    document
-      .querySelector("#name")
-      .addEventListener("change", this._formValidate.bind(this));
-
-    document
-      .querySelector("#phone")
-      .addEventListener("change", this._formValidate.bind(this));
-
-    document
-      .querySelector("#email")
-      .addEventListener("change", this._formValidate.bind(this));
-
-    document
-      .querySelector("#message")
-      .addEventListener("change", this._formValidate.bind(this));
+    formTextFields.forEach((field) =>
+      field.addEventListener("change", this._formValidate.bind(this))
+    );
   }
 
   /* ----- DOM Manip. Functions ----- */
