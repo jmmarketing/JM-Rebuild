@@ -339,12 +339,9 @@ const observer = new IntersectionObserver((entries) => {
 });
 observer.observe(heroImg);
 
-sendBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log(e);
-  const url =
-    "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
+function compileFormData() {
   const form = document.forms["send-message"];
+  const date = new Date();
   const formInfo = new FormData(form);
   const intArray = [];
 
@@ -359,13 +356,22 @@ sendBtn.addEventListener("click", (e) => {
       : intArray[0];
 
   const formDataObj = {
+    date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
     name: formInfo.get("name"),
     email: formInfo.get("email"),
     phone: formInfo.get("phone"),
     message: formInfo.get("message"),
+    interested: interestedIn,
   };
 
-  console.log(interestedIn);
+  return formDataObj;
+}
+
+sendBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const url =
+    "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
+  const data = compileFormData();
 });
 
 const app = new App();
