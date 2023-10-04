@@ -54,6 +54,13 @@ class Casestudy {
 /* ######### APP CLASS / INITIATOR ######### */
 class App {
   #skills = [];
+  #formDataObj = {
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+    interested: true,
+  };
   constructor() {
     this._init();
   }
@@ -93,6 +100,24 @@ class App {
     rateToggle.addEventListener("click", this._toggleRateOptions);
 
     closeContact.addEventListener("click", this._toggleContact);
+
+    /*--------- testing ----- */
+    sendBtn.addEventListener("click", this._sendWebhook.bind(this));
+    document
+      .querySelector("#name")
+      .addEventListener("change", this._formValidate.bind(this));
+
+    document
+      .querySelector("#phone")
+      .addEventListener("change", this._formValidate.bind(this));
+
+    document
+      .querySelector("#email")
+      .addEventListener("change", this._formValidate.bind(this));
+
+    document
+      .querySelector("nmessage")
+      .addEventListener("change", this._formValidate.bind(this));
   }
 
   /* ----- DOM Manip. Functions ----- */
@@ -177,6 +202,10 @@ class App {
       : (casestudyContainer.scrollLeft -= 370);
   }
 
+  _activateSendButton() {
+    sendBtn.disabled = false;
+  }
+
   /* ----- Event Listener Functions ----- */
   _toggleMobileMenu(e) {
     if (e.target.classList.contains("fa-bars"))
@@ -224,6 +253,7 @@ class App {
     contactOverlay.classList.toggle("open");
     document.querySelector("#main-container").classList.toggle("hide");
   }
+
   /* ----- Data Creation ----- */
   _initiateSkills() {
     new Skill("HTML5", "5+", "html5.svg", ["design-dev"]);
@@ -327,6 +357,93 @@ class App {
       ["marketing"]
     );
   }
+
+  /* -------- Compile Data ------ */
+  _compileFormData() {
+    const form = document.forms["send-message"];
+    const date = new Date();
+    const formInfo = new FormData(form);
+    const intArray = [];
+
+    document.querySelectorAll('input[type="checkbox"]').forEach((box) => {
+      if (box.id.includes("form") && box.checked) intArray.push(box.value);
+    });
+    const interestedIn =
+      intArray.length > 2
+        ? intArray.join(", ").replace(/,(?![^,]*,)/, ", &")
+        : intArray.length === 2
+        ? intArray.join(", ").replace(/,(?![^,]*,)/, " &")
+        : intArray[0];
+
+    this.#formDataObj = {
+      date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
+      name: formInfo.get("name"),
+      email: formInfo.get("email"),
+      phone: formInfo.get("phone"),
+      message: formInfo.get("message"),
+      interested: interestedIn,
+    };
+
+    return this.#formDataObj;
+  }
+
+  _formValidate(e) {
+    const nameValid = new RegExp(
+      "^(?=.*[a-z].*[a-z].*[a-z])[a-z\\s]{3,20}$",
+      "i"
+    );
+    const emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneValid = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    const messageValid = new RegExp("^[a-z0-9.,():;&! -]{24,}$", "i");
+
+    if (e.target.id === "name" && nameValid.test(e.target.value)) {
+      e.target.classList.remove("formError");
+      this.#formDataObj.name = true;
+    } else {
+      e.target.classList.add("formError");
+      this.#formDataObj.name = false;
+    }
+
+    if (e.target.id === "email" && emailValid.test(e.target.value)) {
+      e.target.classList.remove("formError");
+      this.#formDataObj.email = true;
+    } else {
+      e.target.classList.add("formError");
+      this.#formDataObj.email = false;
+    }
+
+    if (e.target.id === "phone" && phoneValid.test(e.target.value)) {
+      e.target.classList.remove("formError");
+      this.#formDataObj.phone = true;
+    } else {
+      e.target.classList.add("formError");
+      this.#formDataObj.phone = false;
+    }
+
+    if (e.target.id === "message" && messageValid.test(e.target.value)) {
+      e.target.classList.remove("formError");
+      this.#formDataObj.message = true;
+    } else {
+      e.target.classList.add("formError");
+      this.#formDataObj.message = false;
+    }
+
+    if (Object.values(this.#formDataObj).every((val) => val === true))
+      this._activateSendButton();
+    else sendBtn.disabled = true;
+
+    console.log(Object.values(this.#formDataObj));
+    console.log(this.#formDataObj);
+  }
+
+  /* ---------- Send Data ---------- */
+  _sendWebhook(e) {
+    e.preventDefault();
+    const url =
+      "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
+    const data = this._compileFormData();
+    console.log(data);
+  }
 }
 
 const observer = new IntersectionObserver((entries) => {
@@ -339,39 +456,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 observer.observe(heroImg);
 
-function compileFormData() {
-  const form = document.forms["send-message"];
-  const date = new Date();
-  const formInfo = new FormData(form);
-  const intArray = [];
+/* ------ Development ------ */
 
-  document.querySelectorAll('input[type="checkbox"]').forEach((box) => {
-    if (box.id.includes("form") && box.checked) intArray.push(box.value);
-  });
-  const interestedIn =
-    intArray.length > 2
-      ? intArray.join(", ").replace(/,(?![^,]*,)/, ", &")
-      : intArray.length === 2
-      ? intArray.join(", ").replace(/,(?![^,]*,)/, " &")
-      : intArray[0];
-
-  const formDataObj = {
-    date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
-    name: formInfo.get("name"),
-    email: formInfo.get("email"),
-    phone: formInfo.get("phone"),
-    message: formInfo.get("message"),
-    interested: interestedIn,
-  };
-
-  return formDataObj;
-}
-
-sendBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const url =
-    "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
-  const data = compileFormData();
-});
-
+/* ******* Load Site ***** */
 const app = new App();

@@ -75,6 +75,16 @@ span {
   display: none !important;
 }
 
+.formError {
+  border: 2px solid red !important;
+}
+
+:disabled {
+  background-color: #cfcfcf !important;
+  color: #363636 !important;
+  cursor: not-allowed !important;
+}
+
 /* ###### Navigation ##### */
 .side-nav {
   background-color: #363636;
