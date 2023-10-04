@@ -16,6 +16,7 @@ const navButtons = document.querySelectorAll(".nav-button");
 const contactBtn = document.querySelectorAll("#contact");
 const contactOverlay = document.querySelector(".contact-screen");
 const closeContact = document.querySelector(".fa-circle-xmark");
+const sendBtn = document.querySelector('button[type="submit"]');
 
 let skillsArr = [];
 let casestudyArr = [];
@@ -213,6 +214,7 @@ class App {
     if (e.target.parentElement.id.includes("overlay"))
       mobileOverlay.classList.toggle("open");
 
+    console.log(e.target.getAttribute("href"));
     document
       .querySelector(e.target.getAttribute("href"))
       .scrollIntoView({ behavior: "smooth" });
@@ -336,5 +338,25 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 observer.observe(heroImg);
+
+sendBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(e);
+  const url =
+    "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTZmMDYzZTA0MzQ1MjZkNTUzMjUxMzAi_pc";
+  const form = document.forms["send-message"];
+  const formInfo = new FormData(form);
+  console.log(formInfo.get("marketing"));
+  console.log(formInfo.get("marketing-tech"));
+
+  const formDataObj = {
+    name: formInfo.get("name"),
+    email: formInfo.get("email"),
+    phone: formInfo.get("phone"),
+    message: formInfo.get("message"),
+  };
+
+  console.log(formDataObj);
+});
 
 const app = new App();

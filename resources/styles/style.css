@@ -486,6 +486,9 @@ span {
   font-weight: 600;
 }
 
+.skill-card-subtitle {
+  font-size: 14px;
+}
 .skill-card-title,
 .skill-card-subtitle {
   padding: 2px 0;
@@ -917,7 +920,7 @@ input[type="text"] {
   border-radius: 6px;
   border: 2px solid #b5b5b5;
   font-size: 16px;
-  background-position: 10px 10px;
+  background-position: 10px 13px;
   background-repeat: no-repeat;
   margin-bottom: 10px;
 }
